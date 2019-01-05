@@ -1,10 +1,12 @@
 {
   "name": "chainlogserver",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:build": "webpack -w",
+    "dev": "cross-env NODE_ENV=development nodemon dist/index.bundle.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,8 @@
     "express": "^4.16.3",
     "express-winston": "^3.0.1",
     "winston": "^3.1.0",
-    "winston-loggly-bulk": "^2.0.3"
+    "winston-loggly-bulk": "^2.0.3",
+    "winstond": "0.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
