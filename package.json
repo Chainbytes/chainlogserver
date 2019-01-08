@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "dev:build": "webpack -w",
+    "build": "webpack",
     "dev": "cross-env NODE_ENV=development nodemon dist/index.bundle.js",
     "test": "mocha"
   },
@@ -16,12 +18,14 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cross-env": "^5.2.0",
+    "crypto": "^1.0.1",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-winston": "^3.0.1",
+    "nedb": "^1.8.0",
+    "ursa": "^0.9.4",
     "winston": "^3.1.0",
-    "winston-loggly-bulk": "^2.0.3",
-    "winstond": "0.0.2"
+    "zeromq": "^5.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -36,7 +40,9 @@
     "mocha": "^5.2.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.4",
-    "webpack": "^2.5.1",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^3.1.14",
     "webpack-node-externals": "^1.7.2"
   },
   "license": "MIT",
