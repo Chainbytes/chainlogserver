@@ -4,8 +4,14 @@ import dataBase from "nedb";
 //import {encrypt, decrypt} from './helper/encryption.js'  TODO:  Add Encryption
 const db = new dataBase(({filename: process.env.DB_LOCATION || 'chainlogging.db', autoload: true}));
 const responder = zmq.socket('rep');
-responder.bind(process.env.BINDING || 'tcp://*:60400', err => {
+logger.debug("Starting up");
+const bindingAddress = process.env.BINDING || 'tcp://*:60400';
+console.log('Binding to port: ' + bindingAddress);
+
+responder.bind(bindingAddress, err => {
     if (err) {
+        console.log("error binding" + err);
+        logger.error(err);
         throw err;
     }
     logger.info('Listening for requestors')
@@ -23,6 +29,8 @@ responder.on('message', data => {
             }
         })
     } catch (e) {
+        logger.error(e);
+        console.log(e)
         responder.send(JSON.stringify({error: e}))
         logger.error(e);
     }

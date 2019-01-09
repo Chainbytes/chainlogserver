@@ -22,10 +22,9 @@ const logger = winston.createLogger({
         new winston.transports.File({filename: './logs/combined.log'})
     ]
 });
-if (process.env.NODE_ENV !== 'production') {
-    logger.add(new winston.transports.Console({
-        colorize: true,
-        json: true
-    }));
-}
+logger.add(new winston.transports.Console({
+    colorize: true,
+    json: true
+}));
+
 
